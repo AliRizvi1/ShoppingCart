@@ -4,7 +4,7 @@ class Counter extends Component {
 	//State is an object that includes any data that the component needs
 	state = {
 		count: 0 ,
-		tags: ["tag1","tag2"]
+		// tags: ["tag1","tag2"]
 	};
 
 	// constructor() {
@@ -14,16 +14,17 @@ class Counter extends Component {
 	// }
 
 	//Can set to arrow function, much more simple than the binding constructor above
-	handleIncrement = () => {
+	handleIncrement = (product) => {
+		console.log(product);
 		//Can't modify state directly in React, have to let React know that the state is changing
 		this.setState({count : this.state.count + 1});
 	}
 
-	renderTags() {
-		if (this.state.tags.length === 0) return  <p>There are no tags!</p>;
+	// renderTags() {
+	// 	if (this.state.tags.length === 0) return  <p>There are no tags!</p>;
 
-		return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
-	}
+	// 	return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
+	// }
 
 	render() {
 		return (
@@ -33,15 +34,11 @@ class Counter extends Component {
 			<div>
 				<span className={this.getBadgeClasses()}>{this.formatCount()}</span>
 				<button 
-					onClick={this.handleIncrement} 
+					onClick={ () => this.handleIncrement({id: 1})} 
 					className="btn btn-secondary btn-sm"
 				>
 					Increment
-				</button>
-				{this.state.tags.length === 0 && "Please create a new tag!"}
-				{this.renderTags()}
-
-				
+				</button>				
 			</div>
 			);
 	}
