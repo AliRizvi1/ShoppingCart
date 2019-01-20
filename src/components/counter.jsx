@@ -52,6 +52,8 @@ class Counter extends Component {
 	}
 
 	formatvalue() {
+		//The size of the "Zero" vs. the value is rather large
+		//Could be because of the <h1> sizing vs raw integer
 		const { value } = this.state;
 		return value === 0 ? <h1>Zero</h1> : value;
 
