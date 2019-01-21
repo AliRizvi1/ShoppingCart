@@ -18,6 +18,7 @@ class Counters extends Component {
 		counters[index] = {...counter};
 		counters[index].value++;
 		this.setState({counters});
+		//Always have to setState in React
 	}
 
 	handleDelete = (counterId) => {
