@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 	//State is an object that includes any data that the component needs
-	state = {
-		value: this.props.counter.value 
-		// tags: ["tag1","tag2"]
-	};
 
 	// constructor() {
 	// 	super();
@@ -14,10 +10,6 @@ class Counter extends Component {
 	// }
 
 	//Can set to arrow function, much more simple than the binding constructor above
-	handleIncrement = (product) => {
-		//Can't modify state directly in React, have to let React know that the state is changing
-		this.setState({value : this.state.value + 1});
-	}
 
 	// renderTags() {
 	// 	if (this.state.tags.length === 0) return  <p>There are no tags!</p>;
@@ -34,7 +26,7 @@ class Counter extends Component {
 				{this.props.children}
 				<span className={this.getBadgeClasses()}>{this.formatvalue()}</span>
 				<button 
-					onClick={ () => this.handleIncrement({id: 1})} 
+					onClick={ () => this.props.onIncrement(this.props.counter)} 
 					className="btn btn-secondary btn-sm"
 				>
 					Increment
@@ -49,7 +41,7 @@ class Counter extends Component {
 
 	getBadgeClasses() {
 		let classes = "badge m-2 badge-";
-		classes += this.state.value === 0 ? "warning" : "primary";
+		classes += this.props.counter.value === 0 ? "warning" : "primary";
 		return classes;
 
 	}
@@ -57,7 +49,7 @@ class Counter extends Component {
 	formatvalue() {
 		//The size of the "Zero" vs. the value is rather large
 		//Could be because of the <h1> sizing vs raw integer
-		const { value } = this.state;
+		const { value } = this.props.counter;
 		return value === 0 ? <h1>Zero</h1> : value;
 
 	}
