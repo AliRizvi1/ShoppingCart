@@ -14,6 +14,15 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    //Constructor is the right place to initialize the state
+  }
+
+  componentDidMount() {
+    //Place to make AJAX calls, get data from server
+  }
+
   handleIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
