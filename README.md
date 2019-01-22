@@ -1,3 +1,6 @@
+##Shopping Cart
+A shopping cart created using React.js and HTML.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
